@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rewards | SkillVerse</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body{min-height:100vh;background:radial-gradient(circle at 10% 15%,rgba(217,139,156,.10),transparent 30%),#0f0f12;color:#fff}.rewards-page{max-width:1100px;padding:120px 20px 80px}.eyebrow{color:#d98b9c;letter-spacing:3px;font-size:11px;font-weight:700}.reward-card{height:100%;padding:25px;border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(18px)}.reward-rank{font-size:42px;font-weight:800;color:#d98b9c}.reward-amount{font-size:28px;font-weight:800}.muted{color:#9999a2}.status{display:inline-block;padding:5px 10px;border-radius:20px;background:rgba(217,139,156,.1);color:#d98b9c;font-size:12px}
+</style></head>
+<body>
+<main class="rewards-page container"><div class="mb-5"><p class="eyebrow">SKILLVERSE REWARDS</p><h1 class="display-5 fw-bold">Earn. Achieve. Get Rewarded.</h1><p class="muted">View planned and announced rewards. Winners are selected and announced by the SkillVerse admin.</p><a href="dashboard.html" class="btn btn-outline-light mt-2">← Back to Dashboard</a></div><div id="rewardsList" class="row g-4"><div class="muted">Loading rewards...</div></div></main>
+<script type="module">
+import {requireAuth} from './js/skillverse-core.js'; import {apiGet} from './js/api.js';
+requireAuth();
+const el=document.getElementById('rewardsList');
+const esc=(v='')=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+(async()=>{try{const {rewards=[]}=await apiGet('/rewards');if(!rewards.length){el.innerHTML='<div class="muted">No rewards announced yet.</div>';return;}el.innerHTML=rewards.map(r=>`<div class="col-md-6 col-lg-4"><div class="reward-card"><div class="reward-rank">#${r.rank}</div><h3>${esc(r.title)}</h3><div class="reward-amount">₹${Number(r.amount).toLocaleString('en-IN')}</div><p class="muted text-capitalize">${esc(r.period)} reward</p><span class="status">${esc(r.status)}</span>${r.winner?`<p class="mt-3 mb-0">🏆 Winner: <strong>${esc(r.winner.name||'Winner')}</strong></p>`:'<p class="muted mt-3 mb-0">Winner will be announced by admin.</p>'}</div></div>`).join('')}catch(e){el.innerHTML=`<div style="color:#ff7d89">${esc(e.message)}</div>`}})();
+</script></body></html>

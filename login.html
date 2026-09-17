@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SKILLVERSE | Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="auth-page">
+
+    <!-- =====================================
+         LOGIN CONTAINER
+    ====================================== -->
+
+    <div class="auth-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="auth-left">
+
+            <a href="index.html" class="auth-logo">
+
+                <img
+                    src="assests/images/skillverse-logo.png"
+                    alt="SKILLVERSE Logo">
+
+            </a>
+
+            <div class="auth-message">
+
+                <p class="auth-small-title">
+                    WELCOME BACK
+                </p>
+
+                <h1>
+                    Continue Your<br>
+                    <span>Learning Journey.</span>
+                </h1>
+
+                <p>
+                    Welcome back to SKILLVERSE.
+                    Continue learning, share your
+                    knowledge and grow with the community.
+                </p>
+
+            </div>
+
+            <div class="auth-quote">
+
+                <span>"</span>
+
+                <p>
+                    Your knowledge can inspire
+                    someone else's journey.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="auth-right">
+
+            <div class="signup-box">
+
+                <h2>
+                    Welcome Back
+                </h2>
+
+                <p class="auth-subtitle">
+                    Login to your SKILLVERSE account
+                </p>
+
+                <p class="auth-error" id="authError"></p>
+
+                <!-- LOGIN FORM -->
+
+                <form id="loginForm">
+
+                    <!-- EMAIL -->
+
+                    <div class="input-group">
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle">
+                                Show
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- REMEMBER + FORGOT -->
+
+                    <div class="login-options">
+
+                        <label class="remember-me">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe">
+
+                            <span>
+                                Remember me
+                            </span>
+
+                        </label>
+
+                        <a
+                            href="#"
+                            class="forgot-password">
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="auth-btn">
+                        Login
+                    </button>
+
+                </form>
+
+
+                <!-- CREATE ACCOUNT -->
+
+                <p class="account-link">
+
+                    Don't have an account?
+
+                    <a href="signup.html">
+                        Create Account
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PASSWORD TOGGLE -->
+
+    <script>
+
+        const passwordToggle =
+            document.getElementById("passwordToggle");
+
+        const loginPassword =
+            document.getElementById("loginPassword");
+
+        if (passwordToggle && loginPassword) {
+
+            passwordToggle.addEventListener(
+                "click",
+                () => {
+
+                    if (
+                        loginPassword.type === "password"
+                    ) {
+
+                        loginPassword.type = "text";
+
+                        passwordToggle.textContent =
+                            "Hide";
+
+                    } else {
+
+                        loginPassword.type = "password";
+
+                        passwordToggle.textContent =
+                            "Show";
+
+                    }
+
+                }
+            );
+
+        }
+
+    </script>
+
+
+    <!-- SKILLVERSE AUTH (local, no backend needed) -->
+
+    <script
+        type="module"
+        src="js/auth.js">
+    </script>
+
+</body>
+
+</html>

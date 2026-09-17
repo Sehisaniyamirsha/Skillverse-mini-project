@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SKILLVERSE | My Learning</title>
+
+    <!-- Learning CSS -->
+    <link
+        rel="stylesheet"
+        href="css/learning.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <a
+            href="dashboard.html"
+            class="dashboard-logo"
+        >
+            <img
+                src="assests/images/skillverse-logo.png"
+                alt="SKILLVERSE Logo"
+            >
+        </a>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a
+                href="explore.html"
+                class="nav-item"
+            >
+                <span>🔍</span>
+                Explore Skills
+            </a>
+
+            <a
+                href="learning.html"
+                class="nav-item active"
+            >
+                <span>📚</span>
+                My Learning
+            </a>
+
+            <a
+                href="my-skills.html"
+                class="nav-item"
+            >
+                <span>💡</span>
+                My Skills
+            </a>
+
+            <a
+                href="bookings.html"
+                class="nav-item"
+            >
+                <span>📅</span>
+                Bookings
+            </a>
+
+            <a
+                href="wallet.html"
+                class="nav-item"
+            >
+                <span>🪙</span>
+                Credit Wallet
+            </a>
+
+            <a
+                href="leaderboard.html"
+                class="nav-item"
+            >
+                <span>🏆</span>
+                Leaderboard
+            </a>
+
+            <a
+                href="notifications.html"
+                class="nav-item"
+            >
+                <span>🔔</span>
+                Notifications
+            </a>
+
+            <a href="rewards.html" class="nav-item">
+                <span>🏆</span>
+                Rewards
+            </a>
+
+            <a href="impact.html" class="nav-item">
+                <span>🌱</span>
+                Certificates & Impact
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a
+                href="login.html"
+                class="nav-item logout"
+                id="logoutBtn"
+            >
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================
+         MAIN
+    ====================================== -->
+
+    <main class="learning-main">
+
+
+        <!-- HEADER -->
+
+        <header class="learning-header">
+
+            <div>
+
+                <p class="header-small">
+                    SKILLVERSE
+                </p>
+
+                <h1>
+                    My Learning
+                </h1>
+
+                <p class="header-description">
+                    Continue your learning journey
+                    and improve your skills.
+                </p>
+
+            </div>
+
+
+            <div class="profile-area">
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+                    U
+                </div>
+
+                <div class="profile-info">
+
+                    <strong id="profileName">
+                        User
+                    </strong>
+
+                    <span>
+                        Student
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             LEARNING STATS
+        ====================================== -->
+
+        <section class="learning-stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+                    <p>Courses</p>
+                    <h2 id="courseCount">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ▶️
+                </div>
+
+                <div>
+                    <p>In Progress</p>
+                    <h2 id="progressCount">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <div>
+                    <p>Completed</p>
+                    <h2 id="completedCount">0</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             COURSE SECTION
+        ====================================== -->
+
+        <section class="learning-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="card-label">
+                        YOUR COURSES
+                    </p>
+
+                    <h2>
+                        Continue Learning
+                    </h2>
+
+                </div>
+
+                <a
+                    href="explore.html"
+                    class="explore-link"
+                >
+                    Explore Skills
+                </a>
+
+            </div>
+
+
+            <!-- COURSE GRID -->
+
+            <div
+                class="course-grid"
+                id="courseGrid"
+            >
+
+                <!-- Course cards will come here -->
+
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                class="empty-learning"
+                id="emptyLearning"
+            >
+
+                <div class="empty-icon">
+                    📚
+                </div>
+
+                <h3>
+                    No courses yet
+                </h3>
+
+                <p>
+                    Explore skills and start
+                    your first learning journey.
+                </p>
+
+                <a
+                    href="explore.html"
+                    class="primary-btn"
+                >
+                    Explore Skills
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="learning-footer">
+
+            <p>
+                © 2026 SKILLVERSE. Learn. Share. Grow.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script
+        type="module"
+        src="js/learning.js"
+    ></script>
+
+</body>
+
+</html>

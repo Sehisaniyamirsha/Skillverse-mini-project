@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SKILLVERSE | Certificates & Impact</title>
+
+    <link
+        rel="stylesheet"
+        href="css/app-pages.css"
+    >
+
+    <style>
+
+        .impact-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .impact-tab-btn {
+            background: var(--panel-2);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 9px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .impact-tab-btn.active {
+            background: var(--rose);
+            color: #1a1418;
+            border-color: var(--rose);
+        }
+
+        .impact-panel {
+            display: none;
+        }
+
+        .impact-panel.active {
+            display: block;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 11px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .status-pill.Pending {
+            color: #ffc861;
+            background: rgba(255, 193, 7, 0.10);
+            border: 1px solid rgba(255, 193, 7, 0.18);
+        }
+
+        .status-pill.Verified,
+        .status-pill.Approved {
+            color: #6ed6a1;
+            background: rgba(25, 135, 84, 0.10);
+            border: 1px solid rgba(25, 135, 84, 0.18);
+        }
+
+        .status-pill.Rejected {
+            color: #ff7d89;
+            background: rgba(220, 53, 69, 0.10);
+            border: 1px solid rgba(220, 53, 69, 0.18);
+        }
+
+        .impact-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .impact-row:last-child {
+            border-bottom: none;
+        }
+
+        .impact-row-title {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .impact-row-sub {
+            font-size: 12.5px;
+            color: var(--text-dim);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <a href="index.html" class="dashboard-logo">
+            <img src="assests/images/skillverse-logo.png" alt="SKILLVERSE Logo">
+        </a>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="explore.html" class="nav-item">
+                <span>🔍</span>
+                Explore Skills
+            </a>
+
+            <a href="my-skills.html" class="nav-item">
+                <span>💡</span>
+                My Skills
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <span>📅</span>
+                Bookings
+            </a>
+
+            <a href="wallet.html" class="nav-item">
+                <span>🪙</span>
+                Credit Wallet
+            </a>
+
+            <a href="leaderboard.html" class="nav-item">
+                <span>🏆</span>
+                Leaderboard
+            </a>
+
+            <a href="notifications.html" class="nav-item">
+                <span>🔔</span>
+                Notifications
+            </a>
+
+            <a href="impact.html" class="nav-item active">
+                <span>🌱</span>
+                Certificates & Impact
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="login.html" class="nav-item logout" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+                <p class="header-small">SKILLVERSE</p>
+                <h1>Certificates & Impact</h1>
+                <p class="header-description">
+                    Upload skill certificates and log social-impact activities to earn credits.
+                    An admin reviews every submission before it's approved.
+                </p>
+            </div>
+
+            <div class="profile-area">
+                <div class="profile-avatar" id="profileAvatar">U</div>
+                <div class="profile-info">
+                    <strong id="profileName">User</strong>
+                    <span>Student</span>
+                </div>
+            </div>
+
+        </header>
+
+
+        <div class="impact-tabs">
+            <button class="impact-tab-btn active" data-tab="certificates">📄 Certificates</button>
+            <button class="impact-tab-btn" data-tab="activities">🌱 Impact Activities</button>
+        </div>
+
+
+        <!-- ============ CERTIFICATES PANEL ============ -->
+
+        <div class="impact-panel active" id="panel-certificates">
+
+            <section class="dashboard-card">
+                <div class="card-heading">
+                    <div>
+                        <p class="card-label">SUBMIT</p>
+                        <h2>Upload a Certificate</h2>
+                    </div>
+                </div>
+
+                <form class="settings-form" id="certForm" enctype="multipart/form-data">
+                    <div class="settings-grid">
+                        <div class="input-group">
+                            <label for="certSkillName">Skill Name</label>
+                            <input type="text" id="certSkillName" placeholder="e.g. Web Development" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="certFile">Certificate File (PDF/Image)</label>
+                            <input type="file" id="certFile" accept=".pdf,.png,.jpg,.jpeg" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-btn">Upload Certificate</button>
+                    <p id="certMsg" style="margin-top:10px; font-size:13px;"></p>
+                </form>
+            </section>
+
+            <section class="dashboard-card">
+                <div class="card-heading">
+                    <div>
+                        <p class="card-label">STATUS</p>
+                        <h2>My Certificates</h2>
+                    </div>
+                </div>
+                <div id="certList">
+                    <p style="color:var(--text-dim); font-size:13.5px;">Loading...</p>
+                </div>
+            </section>
+
+        </div>
+
+
+        <!-- ============ ACTIVITIES PANEL ============ -->
+
+        <div class="impact-panel" id="panel-activities">
+
+            <section class="dashboard-card">
+                <div class="card-heading">
+                    <div>
+                        <p class="card-label">SUBMIT</p>
+                        <h2>Log a Social-Impact Activity</h2>
+                    </div>
+                </div>
+
+                <form class="settings-form" id="activityForm" enctype="multipart/form-data">
+                    <div class="settings-grid">
+                        <div class="input-group">
+                            <label for="activityType">Activity Type</label>
+                            <select id="activityType" required>
+                                <option value="">Select type</option>
+                                <option value="Book Donation">Book Donation</option>
+                                <option value="E-Waste Recycling">E-Waste Recycling</option>
+                                <option value="Skill Teaching">Skill Teaching</option>
+                                <option value="Community Activity">Community Activity</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="activityDate">Date</label>
+                            <input type="date" id="activityDate" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="activityCount">Item / Session Count</label>
+                            <input type="number" id="activityCount" min="1" value="1">
+                        </div>
+                        <div class="input-group">
+                            <label for="activityProof">Proof (photo/document, required)</label>
+                            <input type="file" id="activityProof" accept=".pdf,.png,.jpg,.jpeg" required>
+                        </div>
+                        <div class="input-group" style="grid-column:1/-1;">
+                            <label for="activityDescription">Description</label>
+                            <input type="text" id="activityDescription" placeholder="Briefly describe what you did" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-btn">Submit Activity</button>
+                    <p id="activityMsg" style="margin-top:10px; font-size:13px;"></p>
+                </form>
+            </section>
+
+            <section class="dashboard-card">
+                <div class="card-heading">
+                    <div>
+                        <p class="card-label">STATUS</p>
+                        <h2>My Activities</h2>
+                    </div>
+                </div>
+                <div id="activityList">
+                    <p style="color:var(--text-dim); font-size:13.5px;">Loading...</p>
+                </div>
+            </section>
+
+        </div>
+
+
+        <footer class="dashboard-footer">
+            <p>© 2026 SKILLVERSE. Learn. Share. Grow.</p>
+        </footer>
+
+    </main>
+
+    <script type="module" src="js/impact.js"></script>
+
+</body>
+
+</html>

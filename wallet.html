@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SKILLVERSE | Credit Wallet</title>
+
+    <link
+        rel="stylesheet"
+        href="css/app-pages.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <a href="index.html" class="dashboard-logo">
+            <img src="assests/images/skillverse-logo.png" alt="SKILLVERSE Logo">
+        </a>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="explore.html" class="nav-item">
+                <span>🔍</span>
+                Explore Skills
+            </a>
+
+            <a href="my-skills.html" class="nav-item">
+                <span>💡</span>
+                My Skills
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <span>📅</span>
+                Bookings
+            </a>
+
+            <a href="wallet.html" class="nav-item active">
+                <span>🪙</span>
+                Credit Wallet
+            </a>
+
+            <a href="leaderboard.html" class="nav-item">
+                <span>🏆</span>
+                Leaderboard
+            </a>
+
+            <a href="notifications.html" class="nav-item">
+                <span>🔔</span>
+                Notifications
+            </a>
+
+            <a href="impact.html" class="nav-item">
+                <span>🌱</span>
+                Certificates & Impact
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="login.html" class="nav-item logout" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+                <p class="header-small">SKILLVERSE</p>
+                <h1>Credit Wallet</h1>
+                <p class="header-description">
+                    Track the credits you've earned and spent.
+                </p>
+            </div>
+
+            <div class="profile-area">
+                <div class="profile-avatar" id="profileAvatar">U</div>
+                <div class="profile-info">
+                    <strong id="profileName">User</strong>
+                    <span>Student</span>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- BALANCE HERO -->
+
+        <section class="wallet-hero">
+
+            <div>
+                <p>CURRENT BALANCE</p>
+                <h2 id="walletBalance">0 Credits</h2>
+            </div>
+
+            <a href="explore.html" class="primary-btn">Earn More Credits</a>
+
+        </section>
+
+
+        <!-- TRANSACTIONS -->
+
+        <section class="dashboard-card">
+
+            <div class="card-heading">
+                <div>
+                    <p class="card-label">HISTORY</p>
+                    <h2>Transaction History</h2>
+                </div>
+            </div>
+
+            <div class="transaction-list" id="transactionList">
+                <!-- filled by js/wallet.js -->
+            </div>
+
+        </section>
+
+
+        <footer class="dashboard-footer">
+            <p>© 2026 SKILLVERSE. Learn. Share. Grow.</p>
+        </footer>
+
+    </main>
+
+    <script type="module" src="js/wallet.js"></script>
+
+</body>
+
+</html>

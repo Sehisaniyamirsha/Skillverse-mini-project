@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SKILLVERSE | Create Account</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body class="auth-page">
+
+
+    <!-- =====================================
+         SIGNUP CONTAINER
+    ====================================== -->
+
+    <div class="auth-container">
+
+
+        <!-- =================================
+             LEFT SIDE
+        ================================== -->
+
+        <div class="auth-left">
+
+
+            <!-- SKILLVERSE LOGO -->
+
+            <a href="index.html" class="auth-logo">
+
+                <img
+                    src="assests/images/skillverse-logo.png"
+                    alt="SKILLVERSE Logo">
+
+            </a>
+
+
+            <!-- AUTH MESSAGE -->
+
+            <div class="auth-message">
+
+                <p class="auth-small-title">
+                    JOIN SKILLVERSE
+                </p>
+
+
+                <h1>
+                    Start Your<br>
+                    <span>Learning Journey.</span>
+                </h1>
+
+
+                <p>
+                    Create your account and discover
+                    a community where skills are shared,
+                    knowledge grows and everyone can learn.
+                </p>
+
+            </div>
+
+
+            <!-- QUOTE -->
+
+            <div class="auth-quote">
+
+                <span>"</span>
+
+                <p>
+                    Learn from others.<br>
+                    Share what you know.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================
+             RIGHT SIDE
+        ================================== -->
+
+        <div class="auth-right">
+
+
+            <div class="signup-box">
+
+
+                <!-- HEADING -->
+
+                <h2>
+                    Create Account
+                </h2>
+
+
+                <p class="auth-subtitle">
+                    Join SKILLVERSE today
+                </p>
+
+                <p class="auth-error" id="authError"></p>
+
+
+                <!-- =================================
+                     SIGNUP FORM
+                ================================== -->
+
+                <form id="signupForm">
+
+
+                    <!-- FULL NAME -->
+
+                    <div class="input-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            required>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create a password"
+                            required>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="input-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your password"
+                            required>
+
+                    </div>
+
+
+                    <!-- TERMS & CONDITIONS -->
+
+                    <div class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required>
+
+
+                        <label for="terms">
+
+                            I agree to the
+
+                            <a href="#">
+                                Terms & Conditions
+                            </a>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- CREATE ACCOUNT BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="auth-btn">
+
+                        Create Account
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- =================================
+                     LOGIN LINK
+                ================================== -->
+
+                <p class="account-link">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="js/script.js"></script>
+    <script type="module" src="js/auth.js"></script>
+
+
+</body>
+
+</html>

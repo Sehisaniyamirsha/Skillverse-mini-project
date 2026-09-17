@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SKILLVERSE | Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+        <a
+            href="index.html"
+            class="dashboard-logo"
+        >
+
+            <img
+                src="assests/images/skillverse-logo.png"
+                alt="SKILLVERSE Logo"
+            >
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-item active"
+            >
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+
+            <a
+                href="explore.html"
+                class="nav-item"
+            >
+                <span>🔍</span>
+                Explore Skills
+            </a>
+
+
+            <a href="my-skills.html" class="nav-item">
+            <span>💡</span>
+                My Skills
+            </a>
+
+
+            <a
+                href="bookings.html"
+                class="nav-item"
+            >
+                <span>📅</span>
+                Bookings
+            </a>
+
+
+            <a
+                href="wallet.html"
+                class="nav-item"
+            >
+                <span>🪙</span>
+                Credit Wallet
+            </a>
+
+
+            <a
+                href="leaderboard.html"
+                class="nav-item"
+            >
+                <span>🏆</span>
+                Leaderboard
+            </a>
+
+
+            <a
+                href="notifications.html"
+                class="nav-item"
+            >
+                <span>🔔</span>
+                Notifications
+            </a>
+
+
+            <a
+                href="impact.html"
+                class="nav-item"
+            >
+                <span>🌱</span>
+                Certificates & Impact
+            </a>
+
+        </nav>
+
+
+        <!-- BOTTOM NAVIGATION -->
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+                <span>⚙</span>
+                Settings
+            </a>
+
+
+            <a
+                href="login.html"
+                class="nav-item logout"
+                id="logoutBtn"
+            >
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TOP HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="header-small">
+                    SKILLVERSE DASHBOARD
+                </p>
+
+
+                <h1>
+                    Welcome back! 👋
+                </h1>
+
+
+                <p class="header-description">
+                    Continue learning, share your skills
+                    and grow with the community.
+                </p>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <a
+                href="#"
+                class="profile-area"
+            >
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+                    U
+                </div>
+
+
+                <div class="profile-info">
+
+                    <strong id="profileName">
+                        User
+                    </strong>
+
+                    <span>
+                        Student
+                    </span>
+
+                </div>
+
+            </a>
+
+        </header>
+
+
+
+        <!-- =========================================
+             STAT CARDS
+        ========================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    💡
+                </div>
+
+                <div>
+
+                    <p>
+                        My Skills
+                    </p>
+
+                    <h2 id="dashSkills">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🪙
+                </div>
+
+                <div>
+
+                    <p>
+                        Credits
+                    </p>
+
+                    <h2 id="dashCredits">
+                        100
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <p>
+                        Bookings
+                    </p>
+
+                    <h2 id="dashBookings">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <p>
+                        Learning
+                    </p>
+
+                    <h2 id="dashLearning">
+                        0%
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             CONTENT GRID
+        ========================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- MY LEARNING -->
+
+            <div class="dashboard-card learning-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <p class="card-label">
+                            LEARNING
+                        </p>
+
+                        <h2>
+                            My Learning
+                        </h2>
+
+                    </div>
+
+
+                    <a href="learning.html">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div id="dashLearningContent">
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Start your learning journey
+                    </h3>
+
+                    <p>
+                        Explore skills and start learning
+                        from talented people.
+                    </p>
+
+
+                    <a
+                        href="explore.html"
+                        class="primary-btn"
+                    >
+                        Explore Skills
+                    </a>
+
+                </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="dashboard-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <p class="card-label">
+                            QUICK ACTIONS
+                        </p>
+
+                        <h2>
+                            Get Started
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <a
+                        href="my-skills.html"
+                        class="action-item"
+                    >
+
+                        <span>
+                            ➕
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Share a Skill
+                            </strong>
+
+                            <small>
+                                Teach what you know
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <a
+                        href="explore.html"
+                        class="action-item"
+                    >
+
+                        <span>
+                            🔎
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Find a Skill
+                            </strong>
+
+                            <small>
+                                Learn something new
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <a
+                        href="#"
+                        class="action-item"
+                    >
+
+                        <span>
+                            👤
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Complete Profile
+                            </strong>
+
+                            <small>
+                                Add your information
+                            </small>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             EXPLORE SKILLS
+        ========================================== -->
+
+        <section class="dashboard-card explore-section">
+
+
+            <div class="card-heading">
+
+                <div>
+
+                    <p class="card-label">
+                        DISCOVER
+                    </p>
+
+                    <h2>
+                        Explore Popular Skills
+                    </h2>
+
+                </div>
+
+
+                <a href="explore.html">
+                    Explore All
+                </a>
+
+            </div>
+
+
+
+            <div class="skill-grid">
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        HTML, CSS, JavaScript
+                    </p>
+
+                    <a href="explore.html">
+                        Explore
+                    </a>
+
+                </div>
+
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🎨
+                    </div>
+
+                    <h3>
+                        UI / UX Design
+                    </h3>
+
+                    <p>
+                        Figma, Design Principles
+                    </p>
+
+                    <a href="explore.html">
+                        Explore
+                    </a>
+
+                </div>
+
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🐍
+                    </div>
+
+                    <h3>
+                        Python
+                    </h3>
+
+                    <p>
+                        Programming & Development
+                    </p>
+
+                    <a href="explore.html">
+                        Explore
+                    </a>
+
+                </div>
+
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Data Science
+                    </h3>
+
+                    <p>
+                        Data Analysis & Machine Learning
+                    </p>
+
+                    <a href="explore.html">
+                        Explore
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             RECENT ACTIVITY
+        ========================================== -->
+
+        <section class="dashboard-card activity-section">
+
+
+            <div class="card-heading">
+
+                <div>
+
+                    <p class="card-label">
+                        ACTIVITY
+                    </p>
+
+                    <h2>
+                        Recent Activities
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div id="dashActivityContent">
+
+            <div class="activity-empty">
+
+                <span>
+                    ✨
+                </span>
+
+                <p>
+                    Your recent activities will appear here.
+                </p>
+
+            </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 SKILLVERSE. Learn. Share. Grow.
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         FIREBASE DASHBOARD JAVASCRIPT
+    ========================================== -->
+
+    <script
+        type="module"
+        src="js/dashboard.js"
+    ></script>
+
+
+</body>
+
+</html>

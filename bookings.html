@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Bookings | SkillVerse</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- SkillVerse Global CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =========================================
+           BOOKINGS PAGE - PREMIUM DARK THEME
+        ========================================= */
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 10% 15%,
+                    rgba(217, 139, 156, 0.10),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(183, 107, 125, 0.08),
+                    transparent 30%
+                ),
+                #0f0f12;
+            color: #ffffff;
+        }
+
+        .bookings-page {
+            max-width: 1200px;
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+
+        /* =========================================
+           PAGE HEADER
+        ========================================= */
+
+        .bookings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .header-label {
+            color: #d98b9c;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .bookings-header h1 {
+            font-size: clamp(34px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 8px;
+        }
+
+        .bookings-header p {
+            color: #9999a2;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .booking-counter {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 11px 17px;
+
+            border-radius: 30px;
+
+            background: rgba(217, 139, 156, 0.08);
+
+            border: 1px solid rgba(217, 139, 156, 0.18);
+
+            color: #d98b9c;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================
+           BOOKING CARD
+        ========================================= */
+
+        .booking-wrapper {
+            animation: cardAppear 0.5s ease forwards;
+        }
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .booking-card {
+            position: relative;
+
+            height: 100%;
+
+            padding: 25px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.065),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border: 1px solid rgba(255, 255, 255, 0.09);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            overflow: hidden;
+
+            transition: all 0.35s ease;
+        }
+
+
+        /* Top glow */
+
+        .booking-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #d98b9c,
+                    transparent
+                );
+
+            opacity: 0.8;
+        }
+
+
+        /* Background glow */
+
+        .booking-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            top: -80px;
+            right: -70px;
+
+            background: rgba(217, 139, 156, 0.08);
+
+            filter: blur(45px);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .booking-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(217, 139, 156, 0.35);
+
+            box-shadow:
+                0 20px 55px rgba(0, 0, 0, 0.45),
+                0 0 35px rgba(217, 139, 156, 0.06);
+        }
+
+
+        /* =========================================
+           CARD TOP
+        ========================================= */
+
+        .booking-top {
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            margin-bottom: 22px;
+        }
+
+
+        /* Skill Icon */
+
+        .skill-icon-box {
+
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(217, 139, 156, 0.16),
+                    rgba(183, 107, 125, 0.07)
+                );
+
+            border:
+                1px solid rgba(217, 139, 156, 0.18);
+
+            color: #d98b9c;
+
+            font-size: 25px;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+
+        /* Status */
+
+        .status-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 7px 12px;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+        .status-confirmed {
+
+            color: #6ed6a1;
+
+            background:
+                rgba(25, 135, 84, 0.10);
+
+            border:
+                1px solid rgba(25, 135, 84, 0.18);
+        }
+
+        .status-cancelled {
+
+            color: #ff7d89;
+
+            background:
+                rgba(220, 53, 69, 0.10);
+
+            border:
+                1px solid rgba(220, 53, 69, 0.18);
+        }
+
+        .status-pending {
+
+            color: #ffc861;
+
+            background:
+                rgba(255, 193, 7, 0.10);
+
+            border:
+                1px solid rgba(255, 193, 7, 0.18);
+        }
+
+        .status-completed {
+
+            color: #7fb8ff;
+
+            background:
+                rgba(59, 130, 246, 0.10);
+
+            border:
+                1px solid rgba(59, 130, 246, 0.18);
+        }
+
+
+        /* =========================================
+           SKILL TITLE
+        ========================================= */
+
+        .skill-title {
+
+            font-size: 21px;
+
+            font-weight: 750;
+
+            color: #ffffff;
+
+            margin-bottom: 5px;
+        }
+
+        .booking-id {
+
+            color: #66666f;
+
+            font-size: 11px;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================================
+           PROVIDER
+        ========================================= */
+
+        .provider-box {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 13px;
+
+            margin-bottom: 18px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .provider-avatar {
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d98b9c,
+                    #8f5262
+                );
+
+            color: #ffffff;
+
+            font-weight: 700;
+
+            font-size: 15px;
+
+            box-shadow:
+                0 5px 20px rgba(217, 139, 156, 0.18);
+        }
+
+        .provider-label {
+
+            color: #66666f;
+
+            font-size: 10px;
+
+            margin-bottom: 2px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.7px;
+        }
+
+        .provider-name {
+
+            color: #e7e7eb;
+
+            font-size: 14px;
+
+            font-weight: 650;
+        }
+
+
+        /* =========================================
+           DATE / TIME
+        ========================================= */
+
+        .info-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 10px;
+
+            margin-bottom: 18px;
+        }
+
+        .info-item {
+
+            padding: 13px;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.06);
+
+            transition: 0.25s;
+        }
+
+        .info-item:hover {
+
+            border-color:
+                rgba(217, 139, 156, 0.18);
+
+            background:
+                rgba(217, 139, 156, 0.035);
+        }
+
+        .info-icon {
+
+            color: #d98b9c;
+
+            font-size: 15px;
+
+            margin-right: 5px;
+        }
+
+        .info-label {
+
+            display: block;
+
+            color: #62626b;
+
+            font-size: 10px;
+
+            margin-top: 5px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.6px;
+        }
+
+        .info-value {
+
+            display: block;
+
+            color: #ddddE2;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-top: 2px;
+        }
+
+
+        /* =========================================
+           CREDITS
+        ========================================= */
+
+        .credit-row {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 14px 0;
+
+            border-top:
+                1px solid rgba(255, 255, 255, 0.06);
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.06);
+
+            margin-bottom: 18px;
+        }
+
+        .credit-label {
+
+            color: #85858e;
+
+            font-size: 12px;
+        }
+
+        .credit-label i {
+
+            color: #d98b9c;
+
+            margin-right: 5px;
+        }
+
+        .credit-value {
+
+            color: #d98b9c;
+
+            font-size: 13px;
+
+            font-weight: 750;
+        }
+
+
+        /* =========================================
+           ACTION BUTTON
+        ========================================= */
+
+        .booking-actions {
+
+            display: flex;
+
+            gap: 10px;
+        }
+
+        .cancel-btn {
+
+            width: 100%;
+
+            padding: 10px;
+
+            border-radius: 11px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: #a2a2aa;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.10);
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            transition: all 0.3s ease;
+        }
+
+        .cancel-btn:hover {
+
+            color: #ff7d89;
+
+            border-color:
+                rgba(220, 53, 69, 0.35);
+
+            background:
+                rgba(220, 53, 69, 0.07);
+
+            transform: translateY(-2px);
+        }
+
+        .cancel-btn:disabled {
+
+            opacity: 0.65;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        /* =========================================
+           EMPTY STATE
+        ========================================= */
+
+        .empty-state {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            border-radius: 24px;
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .empty-state i {
+
+            color: #d98b9c;
+
+            font-size: 55px;
+        }
+
+        .empty-state h4 {
+
+            margin-top: 18px;
+
+            font-weight: 700;
+        }
+
+        .empty-state p {
+
+            color: #777780;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 768px) {
+
+            .bookings-page {
+
+                padding-top: 105px;
+
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .bookings-header {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                margin-bottom: 30px;
+            }
+
+            .booking-counter {
+
+                margin-top: 5px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .bookings-header h1 {
+
+                font-size: 32px;
+            }
+
+            .booking-card {
+
+                padding: 20px;
+
+                border-radius: 19px;
+            }
+
+            .info-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <a href="dashboard.html" style="position:fixed;top:16px;left:16px;z-index:999;background:#16161c;border:1px solid rgba(255,255,255,0.12);color:#f2f1f4;padding:9px 16px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">← Back to Dashboard</a>
+
+
+    <!-- =========================================
+         MAIN BOOKINGS PAGE
+    ========================================= -->
+
+    <main class="container bookings-page">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="bookings-header">
+
+            <div>
+
+                <div class="header-label">
+                    SkillVerse • Learning Journey
+                </div>
+
+                <h1>
+                    My Bookings
+                </h1>
+
+                <p>
+                    Manage your upcoming skill learning sessions.
+                </p>
+
+            </div>
+
+
+            <div class="booking-counter">
+
+                <i class="bi bi-calendar-check"></i>
+
+                <span>
+                    1 Active Booking
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             BOOKINGS CONTAINER
+        ========================================= -->
+
+        <div
+            id="bookingsContainer"
+            class="row g-4"
+        >
+
+            <p id="bookingsLoading" style="color:rgba(255,255,255,0.5);">Loading your bookings...</p>
+
+        </div>
+
+
+        <!-- =========================================
+             EMPTY STATE
+        ========================================= -->
+
+        <div
+            id="emptyState"
+            class="empty-state mt-4"
+        >
+
+            <i class="bi bi-calendar-x"></i>
+
+            <h4>
+                No Bookings Yet
+            </h4>
+
+            <p>
+                Start learning a new skill and your bookings
+                will appear here.
+            </p>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script type="module">
+
+        import { requireAuth } from "./js/skillverse-core.js";
+        import { apiGet, apiPut } from "./js/api.js";
+
+        const me = requireAuth();
+        if (!me) throw new Error("redirecting to login");
+
+        const container = document.getElementById("bookingsContainer");
+        const emptyState = document.getElementById("emptyState");
+        const counterEl = document.querySelector(".booking-counter span");
+
+        const STATUS_ICON = {
+            Pending: "bi-hourglass-split",
+            Confirmed: "bi-check-circle-fill",
+            Completed: "bi-trophy-fill",
+            Cancelled: "bi-x-circle-fill",
+        };
+        const STATUS_CLASS = {
+            Pending: "status-pending",
+            Confirmed: "status-confirmed",
+            Completed: "status-completed",
+            Cancelled: "status-cancelled",
+        };
+
+        async function loadBookings() {
+            try {
+                const { bookings } = await apiGet("/bookings");
+                renderBookings(bookings || []);
+            } catch (err) {
+                container.innerHTML = `<p style="color:#ff7d89;">${escapeHTML(err.message)}</p>`;
+            }
+        }
+
+        function renderBookings(bookings) {
+            const active = bookings.filter((b) => b.status === "Pending" || b.status === "Confirmed").length;
+            if (counterEl) counterEl.textContent = `${active} Active Booking${active === 1 ? "" : "s"}`;
+
+            if (bookings.length === 0) {
+                container.innerHTML = "";
+                emptyState.style.display = "block";
+                return;
+            }
+            emptyState.style.display = "none";
+
+            container.innerHTML = bookings
+                .map((b) => {
+                    const isStudent = b.student?._id === me._id || b.student?._id === me.id;
+                    const otherPerson = isStudent ? b.mentor : b.student;
+                    const roleLabel = isStudent ? "Skill Provider" : "Learner";
+                    const dateStr = new Date(b.date).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+
+                    let actions = "";
+                    if (b.status === "Pending") {
+                        if (isStudent) {
+                            actions = `<button class="btn cancel-btn" data-id="${b._id}" data-status="Cancelled">
+                                <i class="bi bi-x-circle me-1"></i>Cancel Booking</button>`;
+                        } else {
+                            actions = `
+                                <button class="btn cancel-btn" data-id="${b._id}" data-status="Confirmed" style="border-color:rgba(60,200,120,0.4); color:#5be08a;">
+                                    <i class="bi bi-check-circle me-1"></i>Confirm</button>
+                                <button class="btn cancel-btn" data-id="${b._id}" data-status="Cancelled">
+                                    <i class="bi bi-x-circle me-1"></i>Decline</button>`;
+                        }
+                    } else if (b.status === "Confirmed") {
+                        if (!isStudent) {
+                            actions = `<button class="btn cancel-btn" data-id="${b._id}" data-status="Completed" style="border-color:rgba(60,200,120,0.4); color:#5be08a;">
+                                <i class="bi bi-check2-circle me-1"></i>Mark Completed</button>`;
+                        }
+                        actions += `<button class="btn cancel-btn" data-id="${b._id}" data-status="Cancelled">
+                            <i class="bi bi-x-circle me-1"></i>Cancel</button>`;
+                    } else {
+                        actions = `<button class="btn cancel-btn" disabled><i class="bi bi-check2 me-1"></i>${escapeHTML(b.status)}</button>`;
+                    }
+
+                    return `
+                    <div class="col-md-6 col-lg-4 booking-wrapper">
+                        <div class="booking-card">
+                            <div class="booking-top">
+                                <div class="skill-icon-box"><i class="bi bi-mortarboard"></i></div>
+                                <span class="status-badge ${STATUS_CLASS[b.status] || "status-confirmed"}">
+                                    <i class="bi ${STATUS_ICON[b.status] || "bi-check-circle-fill"}"></i>
+                                    ${escapeHTML(b.status)}
+                                </span>
+                            </div>
+
+                            <h5 class="skill-title">${escapeHTML(b.skill?.name || "Session")}</h5>
+                            <div class="booking-id">Booking ID: ${b._id.slice(-8).toUpperCase()}</div>
+
+                            <div class="provider-box">
+                                <div class="provider-avatar">${(otherPerson?.name || "U").charAt(0).toUpperCase()}</div>
+                                <div>
+                                    <div class="provider-label">${roleLabel}</div>
+                                    <div class="provider-name">${escapeHTML(otherPerson?.name || "Unknown")}</div>
+                                </div>
+                            </div>
+
+                            <div class="info-grid">
+                                <div class="info-item"><div>
+                                    <i class="bi bi-calendar-event info-icon"></i>
+                                    <span class="info-label">Date</span>
+                                    <span class="info-value">${dateStr}</span>
+                                </div></div>
+                                <div class="info-item"><div>
+                                    <i class="bi bi-clock info-icon"></i>
+                                    <span class="info-label">Time</span>
+                                    <span class="info-value">${escapeHTML(b.time)}</span>
+                                </div></div>
+                            </div>
+
+                            <div class="booking-actions">${actions}</div>
+                        </div>
+                    </div>`;
+                })
+                .join("");
+
+            container.querySelectorAll("[data-status]").forEach((btn) => {
+                btn.addEventListener("click", () => updateStatus(btn.dataset.id, btn.dataset.status));
+            });
+        }
+
+        async function updateStatus(id, status) {
+            try {
+                await apiPut(`/bookings/${id}/status`, { status });
+                await loadBookings();
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+
+        function escapeHTML(str = "") {
+            return String(str).replace(/[&<>"\']/g, (c) => ({
+                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+            }[c]));
+        }
+
+        loadBookings();
+
+    </script>
+
+</body>
+</html>
+
